@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  var ex1=document.form1.m1.value;
+  var url="exmp1.html?val="+ex1;
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("output").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET",url, true);
+  xhttp.send();
+}
+</script>
+</head>
+<body>
+<form name="form1" action="newajax">
+<input type="text" name="m1" onkeyup="loadDoc()"/>
+
+</form>
+<span id="output"></span>
+
+</body>
+</html>
